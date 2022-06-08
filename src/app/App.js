@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
-import Products from './product/Products';
+import Routes from './routes';
 
 const App = () => {
   return (
-      <Products />
+      <Routes/>
   );
 }
 

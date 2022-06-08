@@ -1,30 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Product from './Product';
+import findAllProducts from '../services/productService';
+import './Product.css';
 
 const Products = () => {
+    const [products, setProducts] = useState([]);
 
-    const products = [
-        {
-            name: "Sledgehammer",
-            price: 125.75
-        }, {
-            name: "Axe",
-            price: 190.50
-        }, {
-            name: "Bandsaw",
-            price: 562.13
-        }, {
-            name: "Chisel",
-            price: 12.9
-        }, {
-            name: "Hacksaw",
-            price: 18.45
-        }
-    ]
+    useEffect(() => {
+        const localProducts = findAllProducts;
+        setProducts(localProducts);
+    }, []);
 
     return (
         <div>
             <h1>Products</h1>
+            <a href="/cart">Cart</a>
             {
                 products.map((product, key) => (
                     <Product key={product.name + key} data={product} />
